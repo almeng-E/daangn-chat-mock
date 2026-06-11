@@ -1,0 +1,133 @@
+/* ── 한 줄(메시지 + 시간 메타) ───────────────────────────── */
+.msg-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  margin: 2px 0;
+}
+
+.msg-row--mine {
+  justify-content: flex-end;
+}
+
+.msg-row--other {
+  justify-content: flex-start;
+}
+
+/* ── 텍스트 말풍선 ───────────────────────────────────────── */
+.msg-text {
+  max-width: 72%;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: var(--seed-font-size-t4, 15px);
+  line-height: 1.4;
+  white-space: pre-wrap; /* fixture 의 \n 줄바꿈 유지 */
+  word-break: break-word;
+}
+
+/* 내 메시지: 당근 브랜드 색(주황) */
+.msg-text--mine {
+  background: var(--seed-color-bg-brand-solid, #ff7e36);
+  color: var(--seed-color-fg-static-white, #fff);
+  border-bottom-right-radius: 4px;
+}
+
+/* 상대 메시지: 회색 */
+.msg-text--other {
+  background: var(--seed-color-bg-layer-basement, #f2f3f6);
+  color: var(--seed-color-fg-neutral, #212124);
+  border-bottom-left-radius: 4px;
+}
+
+/* 전송 중: 살짝 투명하게 */
+.msg-text--pending {
+  opacity: 0.6;
+}
+
+/* 전송 실패: 빨간 테두리로 강조 */
+.msg-text--failed {
+  border: 1px solid var(--seed-color-stroke-critical, #f5a3a3);
+}
+
+/* ── 시간/상태 메타 ─────────────────────────────────────── */
+.msg-text__meta {
+  display: inline-flex;
+  align-items: flex-end;
+  font-size: var(--seed-font-size-t1, 11px);
+  color: var(--seed-color-fg-neutral-subtle, #adb1ba);
+  white-space: nowrap;
+}
+
+.msg-text__status {
+  color: var(--seed-color-fg-neutral-subtle, #adb1ba);
+}
+
+.msg-text__retry {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  color: var(--seed-color-fg-critical, #d11d1d);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ── 시스템 메시지(날짜 구분선 등) ──────────────────────── */
+.msg-system {
+  align-self: center;
+  margin: 12px auto;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--seed-color-bg-neutral, rgba(0, 0, 0, 0.04));
+  color: var(--seed-color-fg-neutral-subtle, #6d717a);
+  font-size: var(--seed-font-size-t2, 12px);
+  text-align: center;
+  width: fit-content;
+}
+
+.msg-system--unknown {
+  background: var(--seed-color-bg-warning-weak, #fff4e0);
+  color: var(--seed-color-fg-warning, #c47100);
+}
+
+/* ── 거래 카드 메시지 ───────────────────────────────────── */
+.msg-trade-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+  width: 88%;
+  margin: 8px auto;
+  padding: 10px;
+  border: 1px solid var(--seed-color-stroke-neutral, #eceef0);
+  border-radius: 12px;
+  background: var(--seed-color-bg-layer-default, #fff);
+}
+
+.msg-trade-card__thumb {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e8eaed 0%, #d6d9de 100%);
+  overflow: hidden;
+}
+
+.msg-trade-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.msg-trade-card__title {
+  margin: 0;
+  font-size: var(--seed-font-size-t3, 13px);
+  color: var(--seed-color-fg-neutral, #212124);
+}
+
+.msg-trade-card__price {
+  margin: 2px 0 0;
+  font-size: var(--seed-font-size-t4, 14px);
+  font-weight: var(--seed-font-weight-bold, 700);
+  color: var(--seed-color-fg-neutral, #212124);
+}

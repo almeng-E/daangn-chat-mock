@@ -1,0 +1,25 @@
+.composer {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--seed-color-stroke-neutral, #eceef0);
+  background: var(--seed-color-bg-layer-default, #fff);
+}
+
+.composer__field {
+  width: 100%;
+}
+
+.composer__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.composer__count {
+  font-size: var(--seed-font-size-t2, 12px);
+  color: var(--seed-color-fg-neutral-subtle, #adb1ba);
+}

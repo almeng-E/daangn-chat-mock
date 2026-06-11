@@ -1,0 +1,44 @@
+/* 최소한의 전역 리셋 + 모바일 웹뷰 프레임.
+   색/타이포는 가능한 한 SEED 토큰(--seed-color-*, --seed-font-*)을 쓴다. */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(
+    --seed-font-family-default,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Pretendard",
+    system-ui,
+    sans-serif
+  );
+  /* 데스크톱에서 모바일 화면을 가운데 띄워 확인하기 위한 회색 배경 */
+  background: var(--seed-color-bg-layer-basement, #f2f3f6);
+  color: var(--seed-color-fg-neutral, #212124);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+}
+
+/* 모바일 웹뷰를 흉내 낸 단일 컬럼.
+   데스크톱에선 가운데 정렬된 폰 폭, 모바일에선 화면 가득. */
+.app-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--seed-color-bg-layer-default, #ffffff);
+}

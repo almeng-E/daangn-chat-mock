@@ -1,0 +1,47 @@
+.conn-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--seed-font-size-t2, 12px);
+  line-height: 1;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.conn-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.conn-badge--connecting {
+  color: var(--seed-color-fg-warning, #c47100);
+  background: var(--seed-color-bg-warning-weak, #fff4e0);
+}
+
+.conn-badge--connected {
+  color: var(--seed-color-fg-positive, #1a8917);
+  background: var(--seed-color-bg-positive-weak, #e7f4e6);
+}
+
+.conn-badge--disconnected {
+  color: var(--seed-color-fg-critical, #d11d1d);
+  background: var(--seed-color-bg-critical-weak, #fdecec);
+}
+
+/* connecting 일 때만 점을 깜빡인다. */
+.conn-badge--connecting .conn-badge__dot {
+  animation: conn-pulse 1s ease-in-out infinite;
+}
+
+@keyframes conn-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
