@@ -1,8 +1,5 @@
-// Step 1 의 정적 UI + Step 3 의 mock API 가 함께 쓰는 fixture 데이터.
-// WebSocket 없이도 화면을 완성할 수 있도록, "이미 와 있는 것처럼" 보이는 더미 데이터를 둔다.
 import type { ChatRoom, Message } from "./types";
 
-/** 현재 로그인한 "나"의 id. 내 메시지 / 상대 메시지를 가르는 기준이 된다. */
 export const CURRENT_USER_ID = "me";
 
 export const MOCK_ROOM_ID = "room-1";
@@ -22,8 +19,6 @@ export const mockChatRoom: ChatRoom = {
   },
 };
 
-// 이미지의 대화 흐름을 그대로 재현한 초기 메시지들.
-// system 메시지로 날짜 구분선을, trade-card 로 거래 맥락을 흐름 안에 넣어 본다.
 export const mockInitialMessages: Message[] = [
   {
     id: "m-trade-card",
@@ -46,7 +41,7 @@ export const mockInitialMessages: Message[] = [
     roomId: MOCK_ROOM_ID,
     type: "text",
     senderId: CURRENT_USER_ID,
-    text: "혹시 유모차 팔렸나요?",
+    text: "혹시 아이폰 팔렸나요?",
     createdAt: "2021-04-01T15:42:10+09:00",
   },
   {

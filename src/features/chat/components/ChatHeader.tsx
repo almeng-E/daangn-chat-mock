@@ -11,13 +11,11 @@ interface ChatHeaderProps {
   onBack?: () => void;
 }
 
-// 매너온도(0~99) → SEED MannerTemp 의 level(l1~l10) 로 변환.
 function tempToLevel(temp: number): MannerTempLevel {
   const level = Math.min(10, Math.max(1, Math.floor(temp / 10) + 1));
   return `l${level}` as MannerTempLevel;
 }
 
-// 상단 헤더: 뒤로가기 / 상대 프로필 / 매너온도 / 연결 상태 / 더보기
 export function ChatHeader({ opponent, connectionStatus, onBack }: ChatHeaderProps) {
   return (
     <header className="chat-header">

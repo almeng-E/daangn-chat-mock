@@ -4,17 +4,9 @@ import "./MessageBubble.css";
 
 interface MessageBubbleProps {
   message: Message;
-  /** 이 메시지를 내가 보냈는가? (text 메시지에만 의미 있음) */
   isMine: boolean;
 }
 
-// ─────────────────────────────────────────────────────────────────────────
-// 메시지 렌더링은 discriminated union 을 switch 로 좁혀서 그린다.
-//
-// ⚠️ 알 수 없는 type 이 와도 앱이 터지면 안 된다. (types.ts 의 설계 메모 참고)
-//   - default 분기에서 throw 하지 않고 fallback UI 를 그린다.
-//   - 서버가 새 메시지 타입을 먼저 배포해도 클라이언트가 깨지지 않는다.
-// ─────────────────────────────────────────────────────────────────────────
 export function MessageBubble({ message, isMine }: MessageBubbleProps) {
   switch (message.type) {
     case "text":
@@ -24,7 +16,6 @@ export function MessageBubble({ message, isMine }: MessageBubbleProps) {
     case "trade-card":
       return <TradeCardBubble message={message} />;
     default:
-      // 미래의 알 수 없는 메시지 타입을 위한 fallback.
       return <UnknownBubble />;
   }
 }
@@ -33,7 +24,6 @@ function TextBubble({ message, isMine }: { message: TextMessage; isMine: boolean
   const isPending = message.status === "pending";
   const isFailed = message.status === "failed";
 
-  // 시간/상태 메타. 실패 시에는 시간 대신 "전송 실패"를 강조해서 보여준다.
   const meta = (
     <span className="msg-text__meta">
       {isFailed ? (

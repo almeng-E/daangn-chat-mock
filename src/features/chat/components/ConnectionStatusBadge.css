@@ -31,7 +31,6 @@
   background: var(--seed-color-bg-critical-weak, #fdecec);
 }
 
-/* connecting 일 때만 점을 깜빡인다. */
 .conn-badge--connecting .conn-badge__dot {
   animation: conn-pulse 1s ease-in-out infinite;
 }
